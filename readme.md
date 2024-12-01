@@ -55,15 +55,7 @@ python main.py -b mqtt.eclipseprojects.io -p 1883 -t telemetry/data -f flightdat
 
 - The CSV file must have a header row, which is ignored when publishing data.
 - Each row should contain telemetry data separated by commas.
-
-### Example:
-
-```csv
-TEAM_ID,MISSION_TIME,PACKET_COUNT,MODE,STATE,ALTITUDE,AIR_SPEED,HS_DEPLOYED,PC_DEPLOYED,TEMPERATURE,VOLTAGE,PRESSURE,GPS_ALTITUDE,GPS_LATITUDE,GPS_LONGITUDE,GPS_SATS,TILT_X,TILT_Y,ROT_Z,LAST_CMD
-2043,1419,216,F,LAUNCH_WAIT,234.63,10.21,N,N,33.55,4.99,985.38,5.40,23.801393,90.437256,4,31,-12,0,CX/ON
-...
-```
----
+- The data is published as a string, so no data type conversion is performed.
 
 ## How It Works
 
