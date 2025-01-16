@@ -6,13 +6,14 @@ import time
 import argparse
 
 from paho.mqtt import client as mqtt_client
+from paho.mqtt.client import CallbackAPIVersion
 
 global brokerURL
 global brokerPort
 global topic
 global fileName
 
-brokerURL = "mqtt.eclipseprojects.io"
+brokerURL = "127.0.0.1"
 brokerPort = 1883
 topic = "telemetry/data"
 fileName = "flightdata.csv"
@@ -26,7 +27,7 @@ def connect_mqtt():
         else:
             print("Failed to connect, return code %d\n", rc)
 
-    client = mqtt_client.Client(client_id)
+    client = mqtt_client.Client(CallbackAPIVersion.VERSION1,client_id)
     # client.username_pw_set(username, password)
     client.on_connect = on_connect
     client.connect(brokerURL, brokerPort)
